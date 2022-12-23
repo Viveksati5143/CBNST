@@ -4,30 +4,22 @@
 
 int main()
 {
- float lower, upper, integration=0.0, stepSize, k;
- int i, subInterval;
- printf("Enter lower limit of integration: ");
- scanf("%f", &lower);
- printf("Enter upper limit of integration: ");
- scanf("%f", &upper);
- printf("Enter number of sub intervals: ");
- scanf("%d", &subInterval);
- stepSize = (upper - lower)/subInterval;
+    int n;
+    float i, a, b, integration=0, h;
+    int p=1;
+    printf("Enter lower and upper limit of integration: ");
+    scanf("%f%f", &a, &b);
+    printf("Enter number of sub intervals: ");
+    scanf("%d", &n);
+    h = (b - a)/n;
+    integration = f(a) + f(b);
 
- integration = f(lower) + f(upper);
- for(int i=1; i<= subInterval-1; i++)
- {
-  k = lower + i*stepSize;
-  if(i%3 == 0)
-  {
-   integration = integration + 2 * f(k);
-  }
-  else
-  {
-   integration = integration + 3 * f(k);
-  }
- }
- integration = integration * stepSize*3/8;
- printf("\nRequired value of integration is: %.3f", integration);
- return 0;
+    for(i=a+h; i< b; i+=h){
+    if(p%3 == 0) integration += 2*f(i);
+    else integration += 3 * f(i);
+    p++;
+    }
+    integration = (3 * h)/8*integration;
+    printf("\nRequired value of integration is: %f", integration);
+    return 0;
 }
