@@ -10,7 +10,6 @@ int main(){
     scanf("%f%f" ,&a, &b);
     printf("Enter number of sub intervals: ");
     scanf("%d", &n);
-
     h = (b - a)/n;
     integration = f(a) + f(b);
 
