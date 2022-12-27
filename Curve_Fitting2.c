@@ -27,13 +27,13 @@ void ApplyBackSubstitution(float a[3][4],float value[],int n){
 
     for(i=n-2;i>=0;i--){
         sum=0;
-        for(j=i+1;j<n;j++) sum=sum+a[i][j]*value[j];  
+        for(j=i+1;j<n;j++) sum+=a[i][j]*value[j];  
         value[i] = (a[i][n]-sum)/a[i][i];
     } 
 }
 int main(){
     int n;
-    float sx=0,sy=0,sxy=0,sx2y=0,sx2=0,sx3=0,sx4=0,a,b,c;
+    float Sx=0,Sy=0,Sxy=0,Sx2y=0,Sx2=0,Sx3=0,Sx4=0,a,b,c;
     float value[3];
     printf("Enter no. of observations\n");
     scanf("%d",&n);
@@ -44,27 +44,27 @@ int main(){
     for(int i=0;i<n;i++) scanf("%f",&y[i]); 
 
     for(int i=0;i<n;i++){
-        sx=sx+x[i];
-        sy=sy+y[i];
-        sxy=sxy+x[i]*y[i];
-        sx2y=sx2y+x[i]*x[i]*y[i];
-        sx2=sx2+x[i]*x[i];
-        sx3=sx3+x[i]*x[i]*x[i];
-        sx4=sx4+x[i]*x[i]*x[i]*x[i];
+        Sx   += x[i];
+        Sy   += y[i];
+        Sxy  += x[i]*y[i];
+        Sx2y += x[i]*x[i]*y[i];
+        Sx2  += x[i]*x[i];
+        Sx3  += x[i]*x[i]*x[i];
+        Sx4  += x[i]*x[i]*x[i]*x[i];
     }
 
-    augmented_matrix[0][0]=sx2;
-    augmented_matrix[0][1]=sx;
+    augmented_matrix[0][0]=Sx2;
+    augmented_matrix[0][1]=Sx;
     augmented_matrix[0][2]=n;
-    augmented_matrix[0][3]=sy;
-    augmented_matrix[1][0]=sx3;
-    augmented_matrix[1][1]=sx2;
-    augmented_matrix[1][2]=sx;
-    augmented_matrix[1][3]=sxy;
-    augmented_matrix[2][0]=sx4;
-    augmented_matrix[2][1]=sx3;
-    augmented_matrix[2][2]=sx2;
-    augmented_matrix[2][3]=sx2y;
+    augmented_matrix[0][3]=Sy;
+    augmented_matrix[1][0]=Sx3;
+    augmented_matrix[1][1]=Sx2;
+    augmented_matrix[1][2]=Sx;
+    augmented_matrix[1][3]=Sxy;
+    augmented_matrix[2][0]=Sx4;
+    augmented_matrix[2][1]=Sx3;
+    augmented_matrix[2][2]=Sx2;
+    augmented_matrix[2][3]=Sx2y;
     convertToUpperTriangular(augmented_matrix,3);
     ApplyBackSubstitution(augmented_matrix,value,3);
 

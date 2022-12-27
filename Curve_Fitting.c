@@ -13,10 +13,10 @@ int main()
     for(int i=0;i<n;i++) scanf("%f",&y[i]); 
 
     for(int i=0;i<n;i++){
-        sum1=sum1+x[i];
-        sum2=sum2+y[i];
-        sum3=sum3+x[i]*y[i];
-        sum4=sum4+x[i]*x[i];
+        sum1+=x[i];
+        sum2+=y[i];
+        sum3+=x[i]*y[i];
+        sum4+=x[i]*x[i];
     }
     augmented_matrix[0][0]=n;
     augmented_matrix[0][1]=sum1;
@@ -26,7 +26,7 @@ int main()
     augmented_matrix[1][2]=sum3;
 
     int ratio=augmented_matrix[1][0]/augmented_matrix[0][0];
-    for(int i=0;i<3;i++) augmented_matrix[1][i]=augmented_matrix[1][i]-ratio*augmented_matrix[0][i];
+    for(int i=0;i<3;i++) augmented_matrix[1][i] -= ratio*augmented_matrix[0][i];
     
     printf("\nThe Upper Triangular Matrix:\n");
     for(int i=0;i<2;i++){
