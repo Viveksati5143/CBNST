@@ -1,7 +1,6 @@
 #include<stdio.h>
 
-int main()
-{
+int main(){
     int n;
     printf("Enter no. of terms\n");
     scanf("%d",&n);
@@ -9,23 +8,16 @@ int main()
     int i,j;
    
     printf("Enter Values of X \n");
-    for(i=0;i<n;i++)
-          scanf("%f",&X[i]);
+    for(i=0;i<n;i++) scanf("%f",&X[i]);
     printf("Enter Values of Y\n");
-    for(i=0;i<n;i++)
-          scanf("%f",&Y[i]);
+    for(i=0;i<n;i++) scanf("%f",&Y[i]);
           
     printf("Enter value of x for which you want y\n");
     scanf("%f",&x);
-
-    // Applying the Formula  
-    for(i=0;i<n;i++)
-    {
+    for(i=0;i<n;i++){
         term=1;
-        for(j=0;j<n;j++)
-        {   
-            if(i!=j)
-               term = term * ((x - X[j])/(X[i]-X[j]));
+        for(j=0;j<n;j++){   
+            if(i!=j) term = term * ((x - X[j])/(X[i]-X[j]));
         }
         sum=sum + term * Y[i];    
     }
