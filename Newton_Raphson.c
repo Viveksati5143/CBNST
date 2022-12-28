@@ -38,22 +38,15 @@ int main()
         }
     } while(1);
 
-    //find x0
-    if(fabs(f(x1)) < fabs(f(x2)))
-        x0 = x1;
-    else
-        x1 = x2;    
+    if(fabs(f(x1)) < fabs(f(x2))) x0 = x1;
+    else x1 = x2;    
 
-    //Apply Successive approximation to find the root b/w x1 and x2
-    //..........Find root............   
-    for(i=1;i<=maxIteration;i++)
-    {
+    for(i=1;i<=maxIteration;i++){
       x = x0 - (f(x0)/differentiate(x0));  
       
-      if(fabs(x-x0)<EPSILON)
-      {       
-            printf("Iterations=%d  Final Root=%f\n",i,x);
-           return 0;
+      if(fabs(x-x0)<EPSILON){  
+        printf("Iterations=%d  Final Root=%f\n",i,x);
+        return 0;
       }      
       printf("Iterations=%d  Roots=%f\n",i,x); 
       x0=x;

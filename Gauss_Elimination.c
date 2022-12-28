@@ -1,4 +1,3 @@
-//C Program to Implement Gauss Elimination Method
 #include<stdio.h>
 
 int n;
