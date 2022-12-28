@@ -1,4 +1,3 @@
-//Lagrange's Interpolation Method
 #include<stdio.h>
 
 int main()

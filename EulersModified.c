@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
+
 float fun(float,float);
+
 int main(){
     int i,j,c;
     float x[100],y[100],h,m[100],m1,m2,a,s[100],w;
